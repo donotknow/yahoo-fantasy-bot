@@ -16,11 +16,11 @@ fun Observable<Pair<Long, Document>>.convertToTransactionMessage(): Observable<M
         it.second.select("timestamp").first().text().toLong() >= it.first
     }.map {
         when (it.second.select("type").first().text()) {
-            "add" -> addMessage(it.second)
-            "drop" -> dropMessage(it.second)
-            "add/drop" -> addDropMessage(it.second)
+            // "add" -> addMessage(it.second)
+            // "drop" -> dropMessage(it.second)
+            // "add/drop" -> addDropMessage(it.second)
             "trade" -> tradeMessage(it.second)
-            "commish" -> commissionerMessage()
+            // "commish" -> commissionerMessage()
             else -> Message.Unknown("")
         }
     }
